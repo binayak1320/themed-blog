@@ -25,7 +25,7 @@ const BlogDetail = () => {
         <img src={``} alt={post.title} className="w-full h-48 object-cover rounded" />
       </LazyLoad> */}
       <h3 className="text-lg font-bold mt-2">{post.title}</h3>
-      <p className="text-sm text-gray-600">{post.body.substring(0, 100)}...</p>
+      <p className="text-sm text-gray-600">{post.body}</p>
     </div>
   );
 };
