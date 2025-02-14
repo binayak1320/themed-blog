@@ -17,7 +17,7 @@ BlogCard.propTypes = {
       title: PropTypes.string.isRequired,
       body: PropTypes.string.isRequired,
     }).isRequired,
-  };
+};
   
 
 export default BlogCard;
