@@ -1,17 +1,19 @@
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { ThemeContext } from '../context/ThemeContext';
-import ThemeToggle from './ThemeToggle';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTheme } from '../features/themeSlice';
 
 const Header = () => {
-  const { theme } = useContext(ThemeContext);
+  const dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.theme.darkMode);
 
   return (
-    <header className={`p-4 ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
-      <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold">Blog Listing</Link>
-        <ThemeToggle />
-      </div>
+    <header className={`p-4 flex justify-between ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'}`}>
+      <h1 className="text-xl font-bold">Themed Blog</h1>
+      <button 
+        onClick={() => dispatch(toggleTheme())} 
+        className="p-2 border rounded ml-4 cursor-pointer"
+      >
+        {darkMode ? 'Light Mode' : 'Dark Mode'}
+      </button>
     </header>
   );
 };
