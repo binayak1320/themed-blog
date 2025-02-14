@@ -30,4 +30,3 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-args: '--prod --yes'
           working-directory: ./
-          alias-domains: 'your-custom-domain.com'
